@@ -1,6 +1,7 @@
 import sys
 import random
 import pandas as pd
+import statistics
 from urllib.request import urlretrieve
 from os.path import exists
 
@@ -36,19 +37,25 @@ def ArtifactRoll():
 	return None
 
 def main():
-	random.seed()
-	count = 0
-	found = 0
-	distribution = {1:0,2:0,3:0,4:0,5:0}
-	while count < 1000000:
-		a = ArtifactRoll()
-		if a:
-			distribution[a] += 1
-			found += 1
-		count += 1
-	print(distribution)
-	print(found)
-	print(count)
+	count_list = []
+	for i in range(0, 1000):
+		random.seed()
+		count = 0
+		found = 0
+		distribution = {1:0,2:0,3:0,4:0,5:0}
+		artifact_set = {1:False, 2:False, 3:False, 4:False, 5:False}
+		while count < 100000:
+			a = ArtifactRoll()
+			if a:
+				distribution[a] += 1
+				artifact_set[a] = True
+				found += 1
+			count += 1
+			if all(x for x in artifact_set.values()):
+				break
+		count_list.append(count)
+	print(sum(count_list)/len(count_list))
+	print(statistics.pstdev(count_list))
 	return True
 
 if __name__ == "__main__":
