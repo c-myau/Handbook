@@ -48,7 +48,7 @@ def main():
 			a = ArtifactRoll()
 			if a:
 				distribution[a] += 1
-				artifact_set[a] = True
+				artifact_set[a] = True  
 				found += 1
 			count += 1
 			if all(x for x in artifact_set.values()):
