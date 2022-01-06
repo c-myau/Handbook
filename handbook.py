@@ -20,12 +20,22 @@ main_feather = pd.DataFrame.from_dict({'attr':["AK_f"], 'chnc':[100]})
 carry_profile = {1:["CR_p","CD_p"],2:["AK_p"],3:["EL_p"],4:["HP_f"],5:["AK_f"]}
 main_d = {1:main_circlet,2:main_timepiece,3:main_goblet,4:main_flower,5:main_feather}
 
+def CalcDistance():
+	#something like a parabolic curve of probability?
+	#For EM, would also only need half of the curve for the purposes of calculation since the parabola is symetrical
+	#Parabolic curve or maybe its more like an upside-down backwards log function
+	#Edge would be max roll on EM artifact 
+	#Dead center would be mid rolls on both
+	#only question is what to do... maybe a synthesis of all of the different probabilities of reaching the point?
+	#from any point in the curve feels like a tall order though
+	#maybe I can do an aggregated build quality metric, then simply count the high-quality artifacts as something easier. 
+	return True
 
 def ArtifactRoll():
 	artifact_set = random.randint(0,1)
 	main_type = random.randint(1, 5)
-	chance_df = main_d[main_type]
 	stat_roll = random.randint(1, 100)
+	chance_df = main_d[main_type]
 	index = 0
 	while True:
 		stat_roll -= chance_df.iloc[index]['chnc']
@@ -60,3 +70,4 @@ def main():
 
 if __name__ == "__main__":
     sys.exit(main())
+
