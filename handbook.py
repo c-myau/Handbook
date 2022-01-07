@@ -24,11 +24,12 @@ def CalcDistance():
 	#something like a parabolic curve of probability?
 	#For EM, would also only need half of the curve for the purposes of calculation since the parabola is symetrical
 	#Parabolic curve or maybe its more like an upside-down backwards log function
-	#Edge would be max roll on EM artifact 
+	#Edge would be max roll on EM artifact
 	#Dead center would be mid rolls on both
 	#only question is what to do... maybe a synthesis of all of the different probabilities of reaching the point?
 	#from any point in the curve feels like a tall order though
-	#maybe I can do an aggregated build quality metric, then simply count the high-quality artifacts as something easier. 
+	#maybe I can do an aggregated build quality metric, then simply count the high-quality artifacts as something easier.
+	#Would only have to be a 2-D array
 	return True
 
 def ArtifactRoll():
@@ -58,7 +59,7 @@ def main():
 			a = ArtifactRoll()
 			if a:
 				distribution[a] += 1
-				artifact_set[a] = True  
+				artifact_set[a] = True
 				found += 1
 			count += 1
 			if all(x for x in artifact_set.values()):
@@ -70,4 +71,3 @@ def main():
 
 if __name__ == "__main__":
     sys.exit(main())
-
