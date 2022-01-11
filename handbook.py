@@ -20,6 +20,8 @@ main_feather = pd.DataFrame.from_dict({'attr':["AK_f"], 'chnc':[100]})
 carry_profile = {1:["CR_p","CD_p"],2:["AK_p"],3:["EL_p"],4:["HP_f"],5:["AK_f"]}
 main_d = {1:main_circlet,2:main_timepiece,3:main_goblet,4:main_flower,5:main_feather}
 
+starting_artifacts = {}
+
 def CalcDistance():
 	#something like a parabolic curve of probability?
 	#For EM, would also only need half of the curve for the purposes of calculation since the parabola is symetrical
