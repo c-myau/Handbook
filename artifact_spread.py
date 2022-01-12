@@ -11,24 +11,41 @@ EM_stats = [0, 16.32, 18.65, 20.98, 23.31]
 EM_spread = []
 EM_dist = {}
 
+def num_ss():
+    if random.randint(1,4) == 4:
+        substats(4)
+    else: 
+        substats(3)
+
+def substats(num_initial_stats):
+    assign_rolls = 4
+    max_rolls = 9
+    for i in range(0, assign_rolls):
+        if not assign_substat():
+            return 0
+    for i in range(assign_rolls, max_rolls + num_initial_stats - assign_rolls):
+        roll_substat()
+
+def assign_substat():
+    #return true if any desired stats are present
+    return True
+
+def roll_substat():
+    return True
+
 #TODO: write the substat rolling code
 def main():
     for i in range(0,1000000):
-        s = 0
-        for j in range(0, 5):
-            s += EM_stats[random.randint(0, 4)]
-
-        if round(s) not in EM_spread:
-            EM_spread.append(round(s))
-            EM_dist[round(s)] = 1
+        stat = 0
+        if round(stat) not in EM_spread:
+            EM_spread.append(round(stat))
+            EM_dist[round(stat)] = 1
         else:
-            EM_dist[round(s)] += 1
+            EM_dist[round(stat)] += 1
     EM_spread.sort()
     for item in EM_spread:
         txt = "EM {power}: {EM}"
         print(txt.format(power=item, EM=EM_dist[item]))
-
-
 
 if __name__ == "__main__":
     sys.exit(main())
