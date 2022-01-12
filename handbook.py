@@ -18,6 +18,8 @@ main_flower = pd.DataFrame.from_dict({'attr':["HP_f"], 'chnc':[100]})
 main_feather = pd.DataFrame.from_dict({'attr':["AK_f"], 'chnc':[100]})
 
 carry_profile = {1:["CR_p","CD_p"],2:["AK_p"],3:["EL_p"],4:["HP_f"],5:["AK_f"]}
+em_profile = {1:["EM_f"],2:["EM_f"],3:["EM_f"],4:["HP_f"],5:["AK_f"]}
+
 main_d = {1:main_circlet,2:main_timepiece,3:main_goblet,4:main_flower,5:main_feather}
 
 starting_artifacts = {}
@@ -55,20 +57,21 @@ def main():
 		random.seed()
 		count = 0
 		found = 0
-		distribution = {1:0,2:0,3:0,4:0,5:0}
-		artifact_set = {1:False, 2:False, 3:False, 4:False, 5:False}
+		distribution = {1:0,2:0,3:0,4:0,5:}0
+		artifact_set = {1:0, 2:0, 3:0, 4:0, 5:0}
 		while count < 100000:
 			a = ArtifactRoll()
 			if a:
 				distribution[a] += 1
-				artifact_set[a] = True
+				artifact_set[a] = 1
 				found += 1
 			count += 1
-			if all(x for x in artifact_set.values()):
+			if sum(x for x in artifact_set.values()) >= 4:
 				break
 		count_list.append(count)
 	print(sum(count_list)/len(count_list))
 	print(statistics.pstdev(count_list))
+	print(count_list)
 	return True
 
 if __name__ == "__main__":
