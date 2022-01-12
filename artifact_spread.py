@@ -9,17 +9,24 @@ from os.path import exists
 
 EM_stats = [0, 16.32, 18.65, 20.98, 23.31]
 EM_spread = []
+EM_dist = {}
 
+#TODO: write the substat rolling code
 def main():
-    for i in range(0,100000):
+    for i in range(0,1000000):
         s = 0
         for j in range(0, 5):
             s += EM_stats[random.randint(0, 4)]
 
         if round(s) not in EM_spread:
             EM_spread.append(round(s))
+            EM_dist[round(s)] = 1
+        else:
+            EM_dist[round(s)] += 1
     EM_spread.sort()
-    print(EM_spread)
+    for item in EM_spread:
+        txt = "EM {power}: {EM}"
+        print(txt.format(power=item, EM=EM_dist[item]))
 
 
 
