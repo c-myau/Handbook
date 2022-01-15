@@ -1,12 +1,45 @@
 import sys
 import random
 import pandas as pd
+import numpy as np
 import statistics
 from urllib.request import urlretrieve
 from os.path import exists
 
-#96: 0, 58: 0, 82: 0, 61: 0, 93: 0, 100: 0, 91: 0, 79: 0, 84: 0, 65: 0, 98: 0, 68: 0, 35: 0, 86: 0, 77: 0, 75: 0, 54: 0, 89: 0, 105: 0, 42: 0, 72: 0, 103: 0, 51: 0, 63: 0, 70: 0, 21: 0, 44: 0, 56: 0, 37: 0, 33: 0, 107: 0, 110: 0, 114: 0, 47: 0, 112: 0, 40: 0, 49: 0, 19: 0, 16: 0
+#ATK    15.79%
+# DEF 15.79%
+# HP% 10.53%
+# ATK%    10.53%
+# DEF%    10.53%
+# Energy Recharge%    10.53%
+# Elemental Mastery   10.53%
+# CRIT Rate%  7.89%
+# CRIT DMG%   7.89%
+flower_sub = {
+    "AK_f":15.79,
+    "DF_f":15.79,
+    "HP_p":10.53,
+    "AK_p":10.53,
+    "DF_p":10.53,
+    "ER_p":10.53,
+    "EM_f":10.53,
+    "CR_p":7.89,
+    "CD_p":7.88
+}
 
+feather_sub = {
+    "HP_f":15.79,
+    "DF_f":15.79,
+    "HP_p":10.53,
+    "AK_p":10.53,
+    "DF_p":10.53,
+    "ER_p":10.53,
+    "EM_f":10.53,
+    "CR_p":7.89,
+    "CD_p":7.88
+}
+
+profile_focus = ["EM_f"]
 EM_stats = [0, 16.32, 18.65, 20.98, 23.31]
 EM_spread = []
 EM_dist = {}
@@ -21,21 +54,26 @@ def substats(num_initial_stats):
     assign_rolls = 4
     max_rolls = 9
     for i in range(0, assign_rolls):
-        if not assign_substat():
-            return 0
+        if assign_substat() == 0:
+            print("blank")
+            return 0 #TODO remove this terminating returns
+        else:
+            return 1
     for i in range(assign_rolls, max_rolls + num_initial_stats - assign_rolls):
         roll_substat()
 
 def assign_substat():
-    #return true if any desired stats are present
-    return True
+    choice_list = np.random.choice(list(flower_sub), 4, replace=True, p = [x/100 for x in list(flower_sub.values())])
+    print(choice_list)
+    return len([value for value in choice_list if value in profile_focus])
 
 def roll_substat():
     return True
 
 #TODO: write the substat rolling code
 def main():
-    for i in range(0,1000000):
+    num_ss()
+    for i in range(0,10000):
         stat = 0
         if round(stat) not in EM_spread:
             EM_spread.append(round(stat))
