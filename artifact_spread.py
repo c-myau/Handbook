@@ -54,7 +54,8 @@ def substats(num_initial_stats):
     assign_rolls = 4
     max_rolls = 9
     for i in range(0, assign_rolls):
-        if assign_substat() == 0:
+        choice_list = assign_substat()
+        if len([value for value in choice_list if value in profile_focus]) == 0:
             print("blank")
             return 0 #TODO remove this terminating returns
         else:
@@ -65,9 +66,10 @@ def substats(num_initial_stats):
 def assign_substat():
     choice_list = np.random.choice(list(flower_sub), 4, replace=True, p = [x/100 for x in list(flower_sub.values())])
     print(choice_list)
-    return len([value for value in choice_list if value in profile_focus])
+    return choice_list
 
 def roll_substat():
+
     return True
 
 #TODO: write the substat rolling code
