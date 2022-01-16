@@ -53,23 +53,19 @@ def num_ss():
 def substats(num_initial_stats):
     assign_rolls = 4
     max_rolls = 9
-    for i in range(0, assign_rolls):
-        choice_list = assign_substat()
-        if len([value for value in choice_list if value in profile_focus]) == 0:
-            print("blank")
-            return 0 #TODO remove this terminating returns
-        else:
-            return 1
-    for i in range(assign_rolls, max_rolls + num_initial_stats - assign_rolls):
-        roll_substat()
+    choice_list = assign_substat()
+    if len([value for value in choice_list if value in profile_focus]) == 0:
+        print("blank")
+        return 0
+    roll_substats(choice_list, num_initial_stats + 1)
 
 def assign_substat():
     choice_list = np.random.choice(list(flower_sub), 4, replace=True, p = [x/100 for x in list(flower_sub.values())])
     print(choice_list)
     return choice_list
 
-def roll_substat():
-
+def roll_substats(choice_list, num_rolls):
+    
     return True
 
 #TODO: write the substat rolling code
