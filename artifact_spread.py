@@ -39,8 +39,20 @@ feather_sub = {
     "CD_p":7.88
 }
 
+substat_dist = {
+    "EM_f": [16.32, 18.65, 20.98, 23.31],
+    "HP_f": [209.13, 239.00, 268.88, 298.75],
+    "AK_f": [13.62, 15.56, 17.51, 19.45],
+    "DF_f": [16.20, 18.52, 20.83, 23.15],
+    "HP_p": [4.08, 4.66, 5.25, 5.83],
+    "AK_p": [4.08, 4.66, 5.25, 5.83],
+    "DF_p": [5.10, 5.83, 6.56, 7.29],
+    "ER_p": [4.53, 5.18, 5.83, 6.48],
+    "CR_p": [2.72, 3.11, 3.50, 3.89],
+    "CD_p": [5.44, 6.22, 6.99, 7.77]
+}
+
 profile_focus = ["EM_f"]
-EM_stats = [0, 16.32, 18.65, 20.98, 23.31]
 EM_spread = []
 EM_dist = {}
 
@@ -50,12 +62,14 @@ def num_ss():
     else: 
         substats(3)
 
+#TODO fix multiple dupe substas
 def substats(num_initial_stats):
     assign_rolls = 4
     max_rolls = 9
     choice_list = assign_substat()
+    #check for profile focus
     if len([value for value in choice_list if value in profile_focus]) == 0:
-        print("blank")
+        print("No EM")
         return 0
     roll_substats(choice_list, num_initial_stats + 1)
 
@@ -65,7 +79,8 @@ def assign_substat():
     return choice_list
 
 def roll_substats(choice_list, num_rolls):
-    
+    for i in range(0, num_rolls):
+        print(choice_list[random.randint(0, 3)])
     return True
 
 #TODO: write the substat rolling code
