@@ -176,18 +176,86 @@ timepiece_stats_dict = {
 }
 
 
-goblet_sub = {
-    "HP_f":15.79,
-    "AK_f":0,
-    "DF_f":15.79,
-    "HP_p":10.53,
-    "AK_p":10.53,
-    "DF_p":10.53,
-    "ER_p":10.53,
-    "EM_f":10.53,
+hp_goblet_sub = {
+    "HP_f":15.00,
+    "AK_f":15.00,
+    "DF_f":15.00,
+    "HP_p":0,
+    "AK_p":10.00,
+    "DF_p":10.00,
+    "ER_p":10.00,
+    "EM_f":10.00,
     "CR_p":7.50,
     "CD_p":7.50
 }
+
+ak_goblet_sub = {
+    "HP_f":15.00,
+    "AK_f":15.00,
+    "DF_f":15.00,
+    "HP_p":10.00,
+    "AK_p":0,
+    "DF_p":10.00,
+    "ER_p":10.00,
+    "EM_f":10.00,
+    "CR_p":7.50,
+    "CD_p":7.50
+}
+
+df_goblet_sub = {
+    "HP_f":15.00,
+    "AK_f":15.00,
+    "DF_f":15.00,
+    "HP_p":10.00,
+    "AK_p":10.00,
+    "DF_p":0,
+    "ER_p":10.00,
+    "EM_f":10.00,
+    "CR_p":7.50,
+    "CD_p":7.50
+}
+
+elemental_goblet_sub = {
+    "HP_f":13.64,
+    "AK_f":13.64,
+    "DF_f":13.64,
+    "HP_p":9.09,
+    "AK_p":9.09,
+    "DF_p":9.09,
+    "ER_p":9.09,
+    "EM_f":9.09
+    "CR_p":6.82,
+    "CD_p":6.82
+}
+
+em_goblet_sub = {
+    "HP_f":15.00,
+    "AK_f":15.00,
+    "DF_f":15.00,
+    "HP_p":10.00,
+    "AK_p":10.00,
+    "DF_p":10.00,
+    "ER_p":10.00,
+    "EM_f":0,
+    "CR_p":7.50,
+    "CD_p":7.50
+}
+
+
+goblet_stats_dict = {
+    "HP_p":(21.25, hp_goblet_sub),
+    "AK_p":(21.25, ak_goblet_sub),
+    "DF_p":(20.68, df_goblet_sub),
+    "PY_p":(5.00, elemental_goblet_sub),
+    "EL_p":(5.00, elemental_goblet_sub),
+    "CY_p":(5.00, elemental_goblet_sub),
+    "HY_p":(5.00, elemental_goblet_sub),
+    "AN_p":(5.00, elemental_goblet_sub),
+    "GE_p":(5.00, elemental_goblet_sub),
+    "PH_p":(5.00, elemental_goblet_sub),
+    "EM_p":(2.50, em_goblet_sub)
+}
+
 
 flower_sub = {
     "HP_f":0,
