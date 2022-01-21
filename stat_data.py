@@ -1,4 +1,5 @@
 import pandas as pd
+
 hp_circlet_sub = {
     "HP_f":15.00,
     "AK_f":15.00,
@@ -90,16 +91,6 @@ hb_circlet_sub = {
     "CD_p":6.82
 }
 
-#TODO write in the rest of the stats
-circlet_stats_dict = {
-    "HP_p":(22.00, hp_circlet_sub),
-    "AK_p":(22.00, ak_circlet_sub),
-    "DF_p":(22.00, df_circlet_sub),
-    "CR_p":(10.00, cr_circlet_sub),
-    "CD_p":(10.00, cd_circlet_sub),
-    "HB_p":(10.00, hb_circlet_sub),
-    "EM_p":(4.00, em_circlet_sub)
-}
 
 hp_timepiece_sub = {
     "HP_f":15.00,
@@ -166,16 +157,6 @@ em_timepiece_sub = {
     "CD_p":7.50
 }
 
-#TODO write in the rest of the stats
-timepiece_stats_dict = {
-    "HP_p":(26.66, hp_timepiece_sub),
-    "AK_p":(26.66, ak_timepiece_sub),
-    "DF_p":(26.68, df_timepiece_sub),
-    "ER_p":(10.00, er_timepiece_sub),
-    "EM_p":(20.00, em_timepiece_sub)
-}
-
-
 hp_goblet_sub = {
     "HP_f":15.00,
     "AK_f":15.00,
@@ -223,7 +204,7 @@ elemental_goblet_sub = {
     "AK_p":9.09,
     "DF_p":9.09,
     "ER_p":9.09,
-    "EM_f":9.09
+    "EM_f":9.09,
     "CR_p":6.82,
     "CD_p":6.82
 }
@@ -241,6 +222,52 @@ em_goblet_sub = {
     "CD_p":7.50
 }
 
+flower_sub = {
+    "HP_f":0,
+    "AK_f":15.79,
+    "DF_f":15.79,
+    "HP_p":10.53,
+    "AK_p":10.53,
+    "DF_p":10.53,
+    "ER_p":10.53,
+    "EM_f":10.53,
+    "CR_p":7.89,
+    "CD_p":7.88
+}
+
+
+
+feather_sub = {
+    "HP_f":15.79,
+    "AK_f":0,
+    "DF_f":15.79,
+    "HP_p":10.53,
+    "AK_p":10.53,
+    "DF_p":10.53,
+    "ER_p":10.53,
+    "EM_f":10.53,
+    "CR_p":7.89,
+    "CD_p":7.88
+}
+
+circlet_stats_dict = {
+    "HP_p":(22.00, hp_circlet_sub),
+    "AK_p":(22.00, ak_circlet_sub),
+    "DF_p":(22.00, df_circlet_sub),
+    "CR_p":(10.00, cr_circlet_sub),
+    "CD_p":(10.00, cd_circlet_sub),
+    "HB_p":(10.00, hb_circlet_sub),
+    "EM_p":(4.00, em_circlet_sub)
+}
+
+timepiece_stats_dict = {
+    "HP_p":(26.66, hp_timepiece_sub),
+    "AK_p":(26.66, ak_timepiece_sub),
+    "DF_p":(26.68, df_timepiece_sub),
+    "ER_p":(10.00, er_timepiece_sub),
+    "EM_p":(20.00, em_timepiece_sub)
+}
+
 
 goblet_stats_dict = {
     "HP_p":(21.25, hp_goblet_sub),
@@ -256,31 +283,12 @@ goblet_stats_dict = {
     "EM_p":(2.50, em_goblet_sub)
 }
 
-
-flower_sub = {
-    "HP_f":0,
-    "AK_f":15.79,
-    "DF_f":15.79,
-    "HP_p":10.53,
-    "AK_p":10.53,
-    "DF_p":10.53,
-    "ER_p":10.53,
-    "EM_f":10.53,
-    "CR_p":7.89,
-    "CD_p":7.88
+flower_stats_dict = {
+    "HP_p":(100, flower_sub),
 }
 
-feather_sub = {
-    "HP_f":15.79,
-    "AK_f":0,
-    "DF_f":15.79,
-    "HP_p":10.53,
-    "AK_p":10.53,
-    "DF_p":10.53,
-    "ER_p":10.53,
-    "EM_f":10.53,
-    "CR_p":7.89,
-    "CD_p":7.88
+feather_stats_dict = {
+    "HP_p":(100, feather_sub),
 }
 
 substat_dist = {
