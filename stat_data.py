@@ -1,3 +1,4 @@
+import pandas as pd
 hp_circlet_sub = {
     "HP_f":15.00,
     "AK_f":15.00,
@@ -63,7 +64,7 @@ cr_circlet_sub = {
     "CD_p":7.32
 }
 
-cr_circlet_sub = {
+cd_circlet_sub = {
     "HP_f":14.63,
     "AK_f":14.63,
     "DF_f":14.63,
@@ -97,7 +98,7 @@ circlet_stats_dict = {
     "CR_p":(10.00, cr_circlet_sub),
     "CD_p":(10.00, cd_circlet_sub),
     "HB_p":(10.00, hb_circlet_sub),
-    "EM_p":(4.00, en_circlet_sub)
+    "EM_p":(4.00, em_circlet_sub)
 }
 
 hp_timepiece_sub = {
@@ -164,6 +165,16 @@ em_timepiece_sub = {
     "CR_p":7.50,
     "CD_p":7.50
 }
+
+#TODO write in the rest of the stats
+timepiece_stats_dict = {
+    "HP_p":(26.66, hp_timepiece_sub),
+    "AK_p":(26.66, ak_timepiece_sub),
+    "DF_p":(26.68, df_timepiece_sub),
+    "ER_p":(10.00, er_timepiece_sub),
+    "EM_p":(20.00, em_timepiece_sub)
+}
+
 
 goblet_sub = {
     "HP_f":15.79,
