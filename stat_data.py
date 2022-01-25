@@ -249,47 +249,6 @@ feather_sub = {
     "CD_p":7.88
 }
 
-circlet_stats_dict = {
-    "HP_p":(22.00, hp_circlet_sub),
-    "AK_p":(22.00, ak_circlet_sub),
-    "DF_p":(22.00, df_circlet_sub),
-    "CR_p":(10.00, cr_circlet_sub),
-    "CD_p":(10.00, cd_circlet_sub),
-    "HB_p":(10.00, hb_circlet_sub),
-    "EM_p":(4.00, em_circlet_sub)
-}
-
-timepiece_stats_dict = {
-    "HP_p":(26.66, hp_timepiece_sub),
-    "AK_p":(26.66, ak_timepiece_sub),
-    "DF_p":(26.68, df_timepiece_sub),
-    "ER_p":(10.00, er_timepiece_sub),
-    "EM_p":(20.00, em_timepiece_sub)
-}
-
-
-goblet_stats_dict = {
-    "HP_p":(21.25, hp_goblet_sub),
-    "AK_p":(21.25, ak_goblet_sub),
-    "DF_p":(20.68, df_goblet_sub),
-    "PY_p":(5.00, elemental_goblet_sub),
-    "EL_p":(5.00, elemental_goblet_sub),
-    "CY_p":(5.00, elemental_goblet_sub),
-    "HY_p":(5.00, elemental_goblet_sub),
-    "AN_p":(5.00, elemental_goblet_sub),
-    "GE_p":(5.00, elemental_goblet_sub),
-    "PH_p":(5.00, elemental_goblet_sub),
-    "EM_p":(2.50, em_goblet_sub)
-}
-
-flower_stats_dict = {
-    "HP_p":(100, flower_sub),
-}
-
-feather_stats_dict = {
-    "HP_p":(100, feather_sub),
-}
-
 substat_dist = {
     "HP_f": [209.13, 239.00, 268.88, 298.75],
     "AK_f": [13.62, 15.56, 17.51, 19.45],
@@ -301,6 +260,19 @@ substat_dist = {
     "CR_p": [2.72, 3.11, 3.50, 3.89],
     "CD_p": [5.44, 6.22, 6.99, 7.77]
 }
+
+#stat distributions for the main stat of an artifact
+#HP_p = HP%
+#AK_p = ATK%
+#DF_p = DEF%
+#CR_p = Crit Rate%
+#CD_p = Crit Damage%
+#HB_p = Healing Bonus%
+#EM_f = Elemental Mastery
+#ER_P = Energy Rechange%
+#PY_p, EL_p, CY_p, HY_p, AN_p, GE_p, PH_p = Elemental Damage5
+#HP_f = HP flat
+#AK_f = ATK flat
 
 main_circlet = pd.DataFrame.from_dict({'attr':["HP_p", "AK_p", "DF_p", "CR_p", "CD_p", "HB_p", "EM_f"], 'chnc':[22.00,22.00,22.00,10.00,10.00,10.00,4.00]})
 main_timepiece = pd.DataFrame.from_dict({'attr':["HP_p", "AK_p", "DF_p", "ER_p", "EM_f"], 'chnc':[26.68,26.66,26.66,10.00,10.00]})
