@@ -236,7 +236,6 @@ flower_sub = {
 }
 
 
-
 feather_sub = {
     "HP_f":15.79,
     "AK_f":0,
@@ -308,3 +307,11 @@ main_timepiece = pd.DataFrame.from_dict({'attr':["HP_p", "AK_p", "DF_p", "ER_p",
 main_goblet = pd.DataFrame.from_dict({'attr':["HP_p", "AK_p", "DF_p", "PY_p", "EL_p","CY_p", "HY_p","AN_p", "GE_p","PH_p", "EM_f"], 'chnc':[21.25,21.25,20.00,5.00,5.00,5.00,5.00,5.00,5.00,5.00,2.50]})
 main_flower = pd.DataFrame.from_dict({'attr':["HP_f"], 'chnc':[100]})
 main_feather = pd.DataFrame.from_dict({'attr':["AK_f"], 'chnc':[100]})
+
+artifact_type = {
+    "Circlet" : main_circlet,
+    "Timepiece" : main_timepiece,
+    "Goblet" : main_goblet,
+    "Flower" : main_flower,
+    "Feather" : main_feather
+}
