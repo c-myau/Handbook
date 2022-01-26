@@ -13,7 +13,9 @@ profile_focus = ["EM_f"]
 
 #write substat rolling code
 def generate_artifact():
-    print(assign_mainstat())
+    artifact, stat = assign_mainstat()
+    substat_dict = stat_data.artifact_to_substat_map[artifact][stat]
+
     # stats_dict = {key:0 for key in main_type() + assign_substats()}
     # roll_substats(assign_substats(), random.choices([3,4], weights=(75, 25), k=1)[0] + 5)
 

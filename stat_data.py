@@ -287,3 +287,11 @@ artifact_type = {
     "Flower" : main_flower,
     "Feather" : main_feather
 }
+
+artifact_to_substat_map = {
+    "Circlet" : {"HP_p":hp_circlet_sub,"AK_p":ak_circlet_sub,"DF_p":df_circlet_sub,"CR_p":cr_circlet_sub,"CD_p":cd_circlet_sub,"HB_p":hb_circlet_sub,"EM_f":em_circlet_sub},
+    "Timepiece" : {"HP_p":hp_timepiece_sub,"AK_p":ak_timepiece_sub,"DF_p":df_timepiece_sub,"ER_p":er_timepiece_sub,"EM_f":em_timepiece_sub},
+    "Goblet" : {"HP_p":hp_goblet_sub,"AK_p":ak_goblet_sub,"DF_p":df_goblet_sub,"PY_p":elemental_goblet_sub,"EL_p":elemental_goblet_sub,"CY_p":elemental_goblet_sub,"HY_p":elemental_goblet_sub,"AN_p":elemental_goblet_sub,"GE_p":elemental_goblet_sub,"PH_p":elemental_goblet_sub,"EM_f":em_goblet_sub},
+    "Flower" : {"HP_f":flower_sub},
+    "Feather" : {"AK_f":feather_sub}
+}
