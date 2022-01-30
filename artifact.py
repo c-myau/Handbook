@@ -19,12 +19,11 @@ def generate_artifact():
     roll_substats(substat_dict)
 
 def roll_substats(substat_dict):
-    num_rolls = random.choices([3,4], weights=(75, 25), k=1)[0] + 5
+    num_rolls = random.choices([3,4], weights=(75, 25), k=1)[0]
     substat_names = np.random.choice(list(substat_dict.keys()), 4, replace=False, p=[x/100 for x in list(substat_dict.values())])
     substat_distribution = [stat_data.substat_dist[key] for key in substat_names]
-    substat_rolls = random.choices(substat_names, k=num_rolls)
-    substat_power = random.choices(indexes, k=num_rolls)
-    
+    substat_rolls = random.choices(substat_names, k=num_rolls + 5)
+    substat_power = list(np.random.choice(indexes, 4, replace=False)) + random.choices(indexes, k=num_rolls+1)
         
     artifact_dict = {key:0 for key in substat_names}
     for substat, power in zip(substat_rolls, substat_power):
@@ -37,7 +36,6 @@ def roll_substats(substat_dict):
 
     #TODO next list comprehension to add substats
     #TODO check matrix sums
-    #TODO each stat gets at least 1 hit
     return True
 
 def assign_mainstat():
