@@ -28,6 +28,8 @@ def roll_substats(substat_dict):
         print(substat_distribution)
         print(substat_rolls)
         print(substat_power)
+    #TODO next list comprehension to add substats
+    #TODO check matrix sums
     return True
 
 def assign_mainstat():
