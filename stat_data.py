@@ -278,8 +278,8 @@ substat_dist = {
 main_circlet = pd.DataFrame.from_dict({'attr':["HP_p", "AK_p", "DF_p", "CR_p", "CD_p", "HB_p", "EM_f"], 'chnc':[22.00,22.00,22.00,10.00,10.00,10.00,4.00]})
 main_timepiece = pd.DataFrame.from_dict({'attr':["HP_p", "AK_p", "DF_p", "ER_p", "EM_f"], 'chnc':[26.68,26.66,26.66,10.00,10.00]})
 main_goblet = pd.DataFrame.from_dict({'attr':["HP_p", "AK_p", "DF_p", "PY_p", "EL_p","CY_p", "HY_p","AN_p", "GE_p","PH_p", "EM_f"], 'chnc':[21.25,21.25,20.00,5.00,5.00,5.00,5.00,5.00,5.00,5.00,2.50]})
-main_flower = pd.DataFrame.from_dict({'attr':["HP_f"], 'chnc':[100]})
-main_feather = pd.DataFrame.from_dict({'attr':["AK_f"], 'chnc':[100]})
+main_flower = pd.DataFrame.from_dict({'attr':["HP_f"], 'chnc':[100.0]})
+main_feather = pd.DataFrame.from_dict({'attr':["AK_f"], 'chnc':[100.0]})
 
 artifact_type = {
     "Circlet" : main_circlet,
