@@ -3,9 +3,7 @@ import random
 import datetime
 import pandas as pd
 import numpy as np
-import statistics
 import stat_data
-from urllib.request import urlretrieve
 from os.path import exists
 
 debug = True
@@ -31,7 +29,7 @@ def roll_substats(substat_dict):
     for substat, power in zip(substat_rolls, substat_power):
         artifact_dict[substat] += stat_data.substat_dist[substat][power]
 
-    return artifact_dict
+    return {key:round(artifact_dict[key]) for key in artifact_dict.keys()}
 
 def assign_mainstat():
     main_type = random.choice(list(stat_data.artifact_type.items()))
