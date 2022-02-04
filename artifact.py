@@ -56,5 +56,5 @@ class Artifact:
             for x in main_type[1]['chnc']
         ]
 
-        return (main_type[0], np.random.choice(main_type[1]['attr'], 1, replace=False, p = main_weights)[0])
+        return (main_type[0], np.random.choice(main_type[1]['attr'], 1, p = main_weights)[0])
 
