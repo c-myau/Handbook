@@ -19,9 +19,20 @@ class Artifact:
 
     def generate_artifact(self, artifact_type, artifact_mainstat, artifact_substats):
         if artifact_type is None:
-            artifact, stat = self._assign_mainstat(artifact_type)
+            #maybe split main stat and artifact type assignment up?
+            artifact, stat = self._assign_mainstat()
             substat_dict = stat_data.artifact_to_substat_map[artifact][stat]
-        #TODO add further logic to support directly defining an artifact 
+        else:
+            if artifact_mainstat is None:
+                artifact, stat = self._assign_mainstat(artifact_type)
+                substat_dict = stat_data.artifact_to_substat_map[artifact][stat]
+            else:
+                if artifact_substats is None:
+                    artifact, stat = artifact_type, artifact_mainstat
+                    substat_dict = stat_data.artifact_to_substat_map[artifact][stat]
+                else:
+                    [artifact, stat, substat_dict] = artifact_type, artifact_mainstat, artifact_substats
+
         return [artifact, stat, self._roll_substats(substat_dict)]
 
     def _roll_substats(self, input_substat_dict):
@@ -50,15 +61,26 @@ class Artifact:
 
     def _assign_mainstat(self, input_artifact_type = None):
         #choose mainstat
-        if input_artifact_type is None:
-            main_type = random.choice(list(stat_data.artifact_type.items()))
-        else:
-            main_type = stat_data.artifact_type[input_artifact_type]
+        main_type = random.choice(list(stat_data.artifact_type))
+
         #normalize mainstat weights
         main_weights = [
-            x/sum(main_type[1]['chnc'])
-            for x in main_type[1]['chnc']
+            float(x)/sum(stat_data.artifact_type[main_type].values())
+            for x in stat_data.artifact_type[main_type].values()
         ]
 
-        return (main_type[0], np.random.choice(main_type[1]['attr'], 1, p = main_weights)[0])
+        #choose mainstat 
+        mainstat = np.random.choice(list(stat_data.artifact_type[main_type].keys()), 1, p=main_weights)[0]
+
+        return (main_type, mainstat)
+
+    def _set_artifact_type(input_artifact_type):
+        self.__type = input_artifact_type
+
+    def _set_mainstat(input_artifact_type, input_mainstat):
+        self.__mainstat = input_mainstat
+        return True
+
+    def _set_substat_dict():
+        return True
 

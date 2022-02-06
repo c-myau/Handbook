@@ -275,11 +275,13 @@ substat_dist = {
 #HP_f = HP flat
 #AK_f = ATK flat
 
-main_circlet = pd.DataFrame.from_dict({'attr':["HP_p", "AK_p", "DF_p", "CR_p", "CD_p", "HB_p", "EM_f"], 'chnc':[22.00,22.00,22.00,10.00,10.00,10.00,4.00]})
-main_timepiece = pd.DataFrame.from_dict({'attr':["HP_p", "AK_p", "DF_p", "ER_p", "EM_f"], 'chnc':[26.68,26.66,26.66,10.00,10.00]})
-main_goblet = pd.DataFrame.from_dict({'attr':["HP_p", "AK_p", "DF_p", "PY_p", "EL_p","CY_p", "HY_p","AN_p", "GE_p","PH_p", "EM_f"], 'chnc':[21.25,21.25,20.00,5.00,5.00,5.00,5.00,5.00,5.00,5.00,2.50]})
-main_flower = pd.DataFrame.from_dict({'attr':["HP_f"], 'chnc':[100.0]})
-main_feather = pd.DataFrame.from_dict({'attr':["AK_f"], 'chnc':[100.0]})
+main_circlet = {"HP_p":22.00, "AK_p":22.00, "DF_p":22.00, "CR_p":10.00, "CD_p":10.00, "HB_p":10.00, "EM_f":4.00}
+main_timepiece = {"HP_p":26.68, "AK_p":26.66, "DF_p":26.66, "ER_p":10.00, "EM_f":10.00}
+main_goblet = {"HP_p":21.25, "AK_p":21.25, "DF_p":20.00, "PY_p":5.00, "EL_p":5.00,"CY_p":5.00, "HY_p":5.00,"AN_p":5.00, "GE_p":5.00, "PH_p":5.00, "EM_f":2.50}
+main_flower = {"HP_f":100.00}
+main_feather = {"AK_f":100.0}
+
+
 
 artifact_type = {
     "Circlet" : main_circlet,
