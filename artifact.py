@@ -5,8 +5,8 @@ import stat_data
 from os.path import exists
 
 class Artifact:
-    def __init__(self):
-        [self.__type, self.__mainstat, self.__substats] = self.generate_artifact()
+    def __init__(self, artifact_type=None, artifact_mainstat=None, artifact_substats=None): 
+        [self.__type, self.__substats, self.__mainstat] = self.generate_artifact(artifact_type, artifact_mainstat, artifact_substats)
 
     def get_type(self):
         return self.__type
@@ -17,9 +17,11 @@ class Artifact:
     def get_mainstat(self):
         return self.__mainstat
 
-    def generate_artifact(self):
-        artifact, stat = self._assign_mainstat()
-        substat_dict = stat_data.artifact_to_substat_map[artifact][stat]
+    def generate_artifact(self, artifact_type, artifact_mainstat, artifact_substats):
+        if artifact_type is None:
+            artifact, stat = self._assign_mainstat(artifact_type)
+            substat_dict = stat_data.artifact_to_substat_map[artifact][stat]
+        #TODO add further logic to support directly defining an artifact 
         return [artifact, stat, self._roll_substats(substat_dict)]
 
     def _roll_substats(self, input_substat_dict):
@@ -46,10 +48,12 @@ class Artifact:
 
         return {key: round(value) for key, value in artifact_dict.items()}
 
-    def _assign_mainstat(self):
+    def _assign_mainstat(self, input_artifact_type = None):
         #choose mainstat
-        main_type = random.choice(list(stat_data.artifact_type.items()))
-
+        if input_artifact_type is None:
+            main_type = random.choice(list(stat_data.artifact_type.items()))
+        else:
+            main_type = stat_data.artifact_type[input_artifact_type]
         #normalize mainstat weights
         main_weights = [
             x/sum(main_type[1]['chnc'])
