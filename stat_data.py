@@ -1,5 +1,3 @@
-import pandas as pd
-
 hp_circlet_sub = {
     "HP_f":15.00,
     "AK_f":15.00,

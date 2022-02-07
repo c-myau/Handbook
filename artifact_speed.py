@@ -4,7 +4,7 @@ import artifact
 
 def main():
     begin = datetime.datetime.now()
-    test_artifact = artifact.Artifact()
+    print(artifact.Artifact())
     print(datetime.datetime.now() - begin)
 
 

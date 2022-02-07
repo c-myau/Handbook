@@ -8,7 +8,6 @@ import artifact
 #     return 0
 
 
-#TODO: write the substat rolling code
 def main():
     a = artifact.Artifact("Circlet")
     print(a)
