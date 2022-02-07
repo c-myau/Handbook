@@ -262,26 +262,32 @@ substat_dist = {
     "EM_f": [16.32, 18.65, 20.98, 23.31]
 }
 
-#stat distributions for the main stat of an artifact
-#HP_p = HP%
-#AK_p = ATK%
-#DF_p = DEF%
-#CR_p = Crit Rate%
-#CD_p = Crit Damage%
-#HB_p = Healing Bonus%
-#EM_f = Elemental Mastery
-#ER_P = Energy Rechange%
-#PY_p, EL_p, CY_p, HY_p, AN_p, GE_p, PH_p = Elemental Damage5
-#HP_f = HP flat
-#AK_f = ATK flat
+stat_name_map = {
+    "HP_f":"Flat Hit Points",
+    "AK_f":"Flat Attack",
+    "DF_f":"Flat Defense",
+    "HP_p":"Percentage Hit Points",
+    "AK_p":"Percentage Attack",
+    "DF_p":"Percentage Defense",
+    "ER_p":"Percentage Energy Recharge",
+    "EM_f":"Flat Elemental Mastery",
+    "CR_p":"Percentage Critical Rate",
+    "CD_p":"Percentage Critical Damage",
+    "PY_p":"Percentage Pyro Damage",
+    "EL_p":"Percentage Electro Damage",
+    "CY_p":"Percentage Cyro Damage",
+    "HY_p":"Percentage Hydro Damage",
+    "AN_p":"Percentage Anemo Damage",
+    "GE_p":"Percentage Geo Damage",
+    "PH_p":"Percentage Physical Damage",
+    "HB_p":"Percentage Healing Bonus"
+}
 
 main_circlet = {"HP_p":22.00, "AK_p":22.00, "DF_p":22.00, "CR_p":10.00, "CD_p":10.00, "HB_p":10.00, "EM_f":4.00}
 main_timepiece = {"HP_p":26.68, "AK_p":26.66, "DF_p":26.66, "ER_p":10.00, "EM_f":10.00}
 main_goblet = {"HP_p":21.25, "AK_p":21.25, "DF_p":20.00, "PY_p":5.00, "EL_p":5.00,"CY_p":5.00, "HY_p":5.00,"AN_p":5.00, "GE_p":5.00, "PH_p":5.00, "EM_f":2.50}
 main_flower = {"HP_f":100.00}
 main_feather = {"AK_f":100.0}
-
-
 
 artifact_type = {
     "Circlet" : main_circlet,
