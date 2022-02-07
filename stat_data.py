@@ -79,7 +79,7 @@ cd_circlet_sub = {
 hb_circlet_sub = {
     "HP_f":13.64,
     "AK_f":13.64,
-    "DF_p":13.64,
+    "DF_f":13.64,
     "HP_p":9.09,
     "AK_p":9.09,
     "DF_p":9.09,
@@ -281,9 +281,35 @@ stat_name_map = {
     "HB_p":"Percentage Healing Bonus"
 }
 
-main_circlet = {"HP_p":22.00, "AK_p":22.00, "DF_p":22.00, "CR_p":10.00, "CD_p":10.00, "HB_p":10.00, "EM_f":4.00}
-main_timepiece = {"HP_p":26.68, "AK_p":26.66, "DF_p":26.66, "ER_p":10.00, "EM_f":10.00}
-main_goblet = {"HP_p":21.25, "AK_p":21.25, "DF_p":20.00, "PY_p":5.00, "EL_p":5.00,"CY_p":5.00, "HY_p":5.00,"AN_p":5.00, "GE_p":5.00, "PH_p":5.00, "EM_f":2.50}
+main_circlet = {
+    "HP_p":22.00,
+    "AK_p":22.00,
+    "DF_p":22.00,
+    "CR_p":10.00,
+    "CD_p":10.00,
+    "HB_p":10.00,
+    "EM_f":4.00
+}
+main_timepiece = {
+    "HP_p":26.68,
+    "AK_p":26.66,
+    "DF_p":26.66,
+    "ER_p":10.00,
+    "EM_f":10.00
+}
+main_goblet = {
+    "HP_p":21.25,
+    "AK_p":21.25,
+    "DF_p":20.00,
+    "PY_p":5.00,
+    "EL_p":5.00,
+    "CY_p":5.00,
+    "HY_p":5.00,
+    "AN_p":5.00,
+    "GE_p":5.00,
+    "PH_p":5.00,
+    "EM_f":2.50
+}
 main_flower = {"HP_f":100.00}
 main_feather = {"AK_f":100.0}
 
@@ -296,9 +322,35 @@ artifact_type = {
 }
 
 artifact_to_substat_map = {
-    "Circlet" : {"HP_p":hp_circlet_sub,"AK_p":ak_circlet_sub,"DF_p":df_circlet_sub,"CR_p":cr_circlet_sub,"CD_p":cd_circlet_sub,"HB_p":hb_circlet_sub,"EM_f":em_circlet_sub},
-    "Timepiece" : {"HP_p":hp_timepiece_sub,"AK_p":ak_timepiece_sub,"DF_p":df_timepiece_sub,"ER_p":er_timepiece_sub,"EM_f":em_timepiece_sub},
-    "Goblet" : {"HP_p":hp_goblet_sub,"AK_p":ak_goblet_sub,"DF_p":df_goblet_sub,"PY_p":elemental_goblet_sub,"EL_p":elemental_goblet_sub,"CY_p":elemental_goblet_sub,"HY_p":elemental_goblet_sub,"AN_p":elemental_goblet_sub,"GE_p":elemental_goblet_sub,"PH_p":elemental_goblet_sub,"EM_f":em_goblet_sub},
+    "Circlet" : {
+        "HP_p":hp_circlet_sub,
+        "AK_p":ak_circlet_sub,
+        "DF_p":df_circlet_sub,
+        "CR_p":cr_circlet_sub,
+        "CD_p":cd_circlet_sub,
+        "HB_p":hb_circlet_sub,
+        "EM_f":em_circlet_sub
+    },
+    "Timepiece" : {
+        "HP_p":hp_timepiece_sub,
+        "AK_p":ak_timepiece_sub,
+        "DF_p":df_timepiece_sub,
+        "ER_p":er_timepiece_sub,
+        "EM_f":em_timepiece_sub
+    },
+    "Goblet" : {
+        "HP_p":hp_goblet_sub,
+        "AK_p":ak_goblet_sub,
+        "DF_p":df_goblet_sub,
+        "PY_p":elemental_goblet_sub,
+        "EL_p":elemental_goblet_sub,
+        "CY_p":elemental_goblet_sub,
+        "HY_p":elemental_goblet_sub,
+        "AN_p":elemental_goblet_sub,
+        "GE_p":elemental_goblet_sub,
+        "PH_p":elemental_goblet_sub,
+        "EM_f":em_goblet_sub
+    },
     "Flower" : {"HP_f":flower_sub},
     "Feather" : {"AK_f":feather_sub}
 }

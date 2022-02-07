@@ -57,7 +57,7 @@ def main():
 		random.seed()
 		count = 0
 		found = 0
-		distribution = {1:0,2:0,3:0,4:0,5:}0
+		distribution = {1:0,2:0,3:0,4:0,5:0}
 		artifact_set = {1:0, 2:0, 3:0, 4:0, 5:0}
 		while count < 100000:
 			a = ArtifactRoll()
