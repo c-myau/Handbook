@@ -6,7 +6,7 @@ from os.path import exists
 
 class Artifact:
     def __init__(self, artifact_type=None, artifact_mainstat=None, artifact_substats=None): 
-        [self.__type, self.__substats, self.__mainstat] = self.generate_artifact(artifact_type, artifact_mainstat, artifact_substats)
+        [self.__type, self.__mainstat, self.__substats] = self.generate_artifact(artifact_type, artifact_mainstat, artifact_substats)
 
     def get_type(self):
         return self.__type
@@ -18,22 +18,11 @@ class Artifact:
         return self.__mainstat
 
     def generate_artifact(self, artifact_type, artifact_mainstat, artifact_substats):
-        if artifact_type is None:
-            #maybe split main stat and artifact type assignment up?
-            artifact, stat = self._assign_mainstat()
-            substat_dict = stat_data.artifact_to_substat_map[artifact][stat]
-        else:
-            if artifact_mainstat is None:
-                artifact, stat = self._assign_mainstat(artifact_type)
-                substat_dict = stat_data.artifact_to_substat_map[artifact][stat]
-            else:
-                if artifact_substats is None:
-                    artifact, stat = artifact_type, artifact_mainstat
-                    substat_dict = stat_data.artifact_to_substat_map[artifact][stat]
-                else:
-                    [artifact, stat, substat_dict] = artifact_type, artifact_mainstat, artifact_substats
+        artifact = self._assign_maintype()
+        mainstat = self._assign_mainstat(artifact)
+        substat_dict = stat_data.artifact_to_substat_map[artifact][mainstat]
 
-        return [artifact, stat, self._roll_substats(substat_dict)]
+        return [artifact, mainstat, self._roll_substats(substat_dict)]
 
     def _roll_substats(self, input_substat_dict):
         #set up parameters, normalize input data to 1
@@ -59,28 +48,32 @@ class Artifact:
 
         return {key: round(value) for key, value in artifact_dict.items()}
 
-    def _assign_mainstat(self, input_artifact_type = None):
-        #choose mainstat
+    def _assign_maintype(self, input_artifact_type = None):
+        #roll main type
         main_type = random.choice(list(stat_data.artifact_type))
+        print("Main Type: {mt}".format(mt=main_type))
 
+        return main_type
+
+    def _assign_mainstat(self, main_type):
         #normalize mainstat weights
         main_weights = [
             float(x)/sum(stat_data.artifact_type[main_type].values())
             for x in stat_data.artifact_type[main_type].values()
         ]
 
-        #choose mainstat 
+        #roll mainstat 
         mainstat = np.random.choice(list(stat_data.artifact_type[main_type].keys()), 1, p=main_weights)[0]
+        print("Main Stat: {mt}".format(mt=mainstat))
 
-        return (main_type, mainstat)
+        return mainstat
 
-    def _set_artifact_type(input_artifact_type):
+    def _set_artifact_type(self, input_artifact_type):
         self.__type = input_artifact_type
 
-    def _set_mainstat(input_artifact_type, input_mainstat):
+    def _set_mainstat(self, input_artifact_type, input_mainstat):
         self.__mainstat = input_mainstat
-        return True
 
-    def _set_substat_dict():
-        return True
+    def _set_substat_dict(self, substat_dict):
+        self.__substats = substat_dict
 
