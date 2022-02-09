@@ -70,7 +70,6 @@ class Artifact:
                 list(np.random.choice([0, 1, 2, 3], 4, replace=False)) +
                 random.choices([0, 1, 2, 3], k=num_rolls+1)
             )
-            print(substat_power)
             #write artifact and output
             artifact_dict = dict.fromkeys(substat_names, 0)
             for substat, power in zip(substat_rolls, substat_power):
