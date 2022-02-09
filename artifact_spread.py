@@ -11,18 +11,17 @@ crit_profile = {"CR_p":2, "CD_p":1}
 MAX_TESTS = 10000
 
 def eval_artifact(input_artifact, eval_profile):
-    if len([value for value in input_artifact.get_substats().keys() if value in eval_profile]) == 0:
-        return False
-    return True
-    #TODO add scoring methodology
+    #return the sum of all of the substat values within the input profile, multiplied by the profile's weight for that substat
+    return sum([value * eval_profile[key] if key in eval_profile else 0 for key, value in input_artifact.get_substats().items()])
 
 def main():
-    a = artifact.Artifact("Flower")
+    a = artifact.Artifact()
 
     for i in range(1, MAX_TESTS):
-        b = artifact.Artifact("Flower")
-        if eval_artifact(b, crit_profile):
-            break
+        b = artifact.Artifact()
+        if a.get_type() == b.get_type():
+            if eval_artifact(a, crit_profile) < eval_artifact(b, crit_profile):
+                break
 
     if i == MAX_TESTS:
         print("None Found")

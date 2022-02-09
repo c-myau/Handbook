@@ -2,6 +2,7 @@ import random
 import numpy as np
 import stat_data
 
+#TOD0 fix 0 substat bug. Again
 class Artifact:
     def __init__(self, artifact_type=None, artifact_mainstat=None, artifact_substats=None):
         [
