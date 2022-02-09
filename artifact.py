@@ -62,12 +62,15 @@ class Artifact:
 
             #roll for substat values
             substat_names = np.random.choice(data_keys, 4, replace=False, p=data_weights)
-            substat_rolls = random.choices(substat_names, k=num_rolls + 5)
+            substat_rolls = (
+                list(np.random.choice(substat_names, 4, replace=False)) +
+                random.choices(substat_names, k=num_rolls+1)
+            )
             substat_power = (
                 list(np.random.choice([0, 1, 2, 3], 4, replace=False)) +
                 random.choices([0, 1, 2, 3], k=num_rolls+1)
             )
-
+            print(substat_power)
             #write artifact and output
             artifact_dict = dict.fromkeys(substat_names, 0)
             for substat, power in zip(substat_rolls, substat_power):
