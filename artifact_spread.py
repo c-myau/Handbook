@@ -7,8 +7,10 @@ CRIT_PROFILE = {"CR_p":4, "CD_p":2, "AK_p":1}
 MAX_TESTS = 1000
 TOTAL_RUNS = 1000
 DEBUG = False
+ARTIFACT_TYPE = "Circlet"
 
 def eval_artifact(input_artifact, eval_profile):
+    #TODO need to tweak scoring algorithm for circlets
     #return the sum of all of the substat values within the input profile, multiplied by the profile's weight for that substat
     return sum([value * eval_profile[key] if key in eval_profile else 0 for key, value in input_artifact.get_substats().items()])
 
@@ -19,7 +21,7 @@ def artifact_to_csv(a):
     return [a.get_type(), a.get_mainstat()] + list(substat_dict.values())
 
 def generative_model():
-    a = artifact.Artifact()
+    a = artifact.Artifact(ARTIFACT_TYPE)
     for i in range( MAX_TESTS):
         b = artifact.Artifact()
         if a.get_type() == b.get_type():
@@ -39,10 +41,35 @@ def generative_model():
 def main():
     with open('artifact_data.csv', 'w', newline='') as csvfile:
         artist = csv.writer(csvfile, delimiter=',', quotechar="'")
-        (a, b, i) = generative_model()
-        a_row = artifact_to_csv(a)
-        b_row = artifact_to_csv(b)
-        artist.writerow([i] + a_row + b_row)
+        artist.writerow([
+            "NumRuns",
+            "ArtAType",
+            "ArtAMainstat",
+            "HP_f_A",
+            "AK_f_A",
+            "DF_f_A",
+            "HP_p_A",
+            "AK_p_A",
+            "DF_p_A",
+            "ER_p_A",
+            "EM_f_A",
+            "CR_p_A",
+            "CD_p_A",
+            "ArtAType",
+            "ArtAMainstat",
+            "HP_f_B",
+            "AK_f_B",
+            "DF_f_B",
+            "HP_p_B",
+            "AK_p_B",
+            "DF_p_B",
+            "ER_p_B",
+            "EM_f_B",
+            "CR_p_B",
+            "CD_p_B"])
+        for i in range(TOTAL_RUNS):
+            (a, b, i) = generative_model()
+            artist.writerow([i] + artifact_to_csv(a) + artifact_to_csv(b))
 
 
 
