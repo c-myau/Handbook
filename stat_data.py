@@ -310,6 +310,28 @@ main_goblet = {
     "PH_p":5.00,
     "EM_f":2.50
 }
+
+mainstat_value = {
+    "HP_p":46.6,
+    "AK_p":46.6,
+    "DF_p":58.8,
+    "EM_f":186.5,
+    "HB_P":31.1,
+    "ER_p":51.8,
+    "HP_f":4780,
+    "AK_f":311,
+    "CR_p":31.1,
+    "CD_p":62.2,
+    "PY_p":46.6,
+    "EL_p":46.6,
+    "CY_p":46.6,
+    "HY_p":46.6,
+    "AN_p":46.6,
+    "GE_p":46.6,
+    "PH_p":58.3
+
+}
+
 main_flower = {"HP_f":100.00}
 main_feather = {"AK_f":100.0}
 

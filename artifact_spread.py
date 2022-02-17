@@ -2,38 +2,37 @@ import sys
 import csv
 import artifact
 import datetime
+import stat_data
 
-substat_names = ["HP_f","AK_f","DF_f","HP_p","AK_p","DF_p","ER_p","EM_f","CR_p","CD_p"]
-ELECTRO_CRIT_PROFILE = {
-    "mainstats":{
-        "Circlet":{"CR_p":4, "CD_p":2}, 
-        "Timepiece":{"AK_p"}, 
-        "Goblet":{"EL_p"}, 
-        "Feather":{"AK_f"}, 
-        "Flower":{"HP_f"}
-            }, 
-    "substats":{
-        "CR_p":4, 
-        "CD_p":2, 
-        "AK_p":1
-    }
-}
 
 MAX_TESTS = 10000
 TOTAL_RUNS = 1000
 DEBUG = False
 ARTIFACT_TYPE = "Circlet"
 
-def eval_artifact(input_artifact, eval_profile):
-    #TODO need to tweak scoring algorithm to factor in main statting... way more
-    if input_artifact.get_mainstat() in eval_profile["mainstats"][ARTIFACT_TYPE]:
-        mainstat = 72
-    else: 
-        mainstat = 0
+substat_names = ["HP_f","AK_f","DF_f","HP_p","AK_p","DF_p","ER_p","EM_f","CR_p","CD_p"]
 
-    #return the sum of all of the substat values within the input profile, multiplied by the profile's weight for that substat
-    return sum([value * eval_profile["substats"][key] if key in eval_profile["substats"] else 0 for key, value in input_artifact.get_substats().items()] + 
-        [mainstat])
+ELECTRO_CRIT_PROFILE = {
+    "EL_p":8,
+    "CR_p":4, 
+    "CD_p":2, 
+    "AK_p":1
+}
+
+def eval_artifact(input_artifact, eval_profile):
+    #Apply profile scaling to substat artifact value
+    substat_score = sum([
+                            value * eval_profile[key] 
+                                if key in eval_profile 
+                                else 0 
+                            for key, value in input_artifact.get_substats().items()
+                        ])
+    if input_artifact.get_mainstat() in eval_profile:
+        #Apply profile scaling to mainstat artifact value
+        mainstat_score = stat_data.mainstat_value[input_artifact.get_mainstat()] * eval_profile[input_artifact.get_mainstat()]
+    else:
+        mainstat_score = 0
+    return substat_score + mainstat_score
 
 def artifact_to_csv(a):
     if a is None:
@@ -47,9 +46,10 @@ def generative_model():
     a = artifact.Artifact(ARTIFACT_TYPE)
     for i in range(MAX_TESTS):
         b = artifact.Artifact()
-        if (a.get_type() == b.get_type() and
-            b.get_mainstat() in ELECTRO_CRIT_PROFILE["mainstats"][ARTIFACT_TYPE].keys()): 
-            if eval_artifact(a, ELECTRO_CRIT_PROFILE) < eval_artifact(b, ELECTRO_CRIT_PROFILE): #what if I do this but factoring in mainstat into the scoring?
+        if (a.get_type() == b.get_type()): 
+            a_score = eval_artifact(a, ELECTRO_CRIT_PROFILE)
+            b_score = eval_artifact(b, ELECTRO_CRIT_PROFILE)
+            if a_score < b_score: #what if I do this but factoring in mainstat into the scoring?
                 break
     if i == MAX_TESTS - 1:
         i = MAX_TESTS
@@ -61,7 +61,7 @@ def generative_model():
             print("Runs Taken: {i}".format(i=i))
             print("Artifact A\n---------\n{a} ".format(a=a))
             print("Artifact B\n---------\n{b} ".format(b=b))
-    return (a, b, i)
+    return (a, b, i, a_score, b_score)
 
 def main():
     begin = datetime.datetime.now()
@@ -70,6 +70,8 @@ def main():
         artist = csv.writer(csvfile, delimiter=',', quotechar="'")
         artist.writerow([
             "NumRuns",
+            "a_score",
+            "b_score",
             "ArtAType",
             "ArtAMainstat",
             "HP_f_A",
@@ -95,8 +97,8 @@ def main():
             "CR_p_B",
             "CD_p_B"])
         for i in range(TOTAL_RUNS):
-            (a, b, i) = generative_model()
-            artist.writerow([i] + artifact_to_csv(a) + artifact_to_csv(b))
+            (a, b, i, a_score, b_score) = generative_model()
+            artist.writerow([i] + [a_score, b_score] + artifact_to_csv(a) + artifact_to_csv(b))
             j += i
 
     print(datetime.datetime.now() - begin)
