@@ -6,7 +6,7 @@ import stat_data
 
 
 MAX_TESTS = 10000
-TOTAL_RUNS = 1000
+TOTAL_RUNS = 100000
 DEBUG = False
 ARTIFACT_TYPE = "Circlet"
 
@@ -70,8 +70,6 @@ def main():
         artist = csv.writer(csvfile, delimiter=',', quotechar="'")
         artist.writerow([
             "NumRuns",
-            "a_score",
-            "b_score",
             "ArtAType",
             "ArtAMainstat",
             "HP_f_A",
@@ -98,7 +96,7 @@ def main():
             "CD_p_B"])
         for i in range(TOTAL_RUNS):
             (a, b, i, a_score, b_score) = generative_model()
-            artist.writerow([i] + [a_score, b_score] + artifact_to_csv(a) + artifact_to_csv(b))
+            artist.writerow([i] + artifact_to_csv(a) + artifact_to_csv(b))
             j += i
 
     print(datetime.datetime.now() - begin)
