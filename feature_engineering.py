@@ -2,10 +2,11 @@ import pandas as pd
 import stat_data as sd
 
 
-def main_sub_sum(mainstat_name):
-	return sd.mainstat_value[mainstat_name]
+def main_sub_sum(row):
+	mainstat_name = row[2]
+	row[mainstat_name + "_A"] = sd.mainstat_value[mainstat_name]
+	return row
 
 def fe_artifacts(artifacts):
-	print(artifacts)
-	return artifacts.apply(lambda row: main_sub_sum(row[2]), axis = 1)
-	
+	#TODO delete unneccessary rows
+	return artifacts.apply(main_sub_sum, axis = 1)
