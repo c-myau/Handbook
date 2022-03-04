@@ -5,8 +5,8 @@ import datetime
 import stat_data
 
 
-MAX_TESTS = 10000
-TOTAL_RUNS = 100000
+MAX_TESTS = 1000
+TOTAL_RUNS = 1000000
 DEBUG = False
 ARTIFACT_TYPE = "Circlet"
 
@@ -46,7 +46,7 @@ def generative_model():
     a = artifact.Artifact(ARTIFACT_TYPE)
     for i in range(MAX_TESTS):
         b = artifact.Artifact()
-        if (a.get_type() == b.get_type()):
+        if a.get_type() == b.get_type():
             a_score = eval_artifact(a, ELECTRO_CRIT_PROFILE)
             b_score = eval_artifact(b, ELECTRO_CRIT_PROFILE)
             if a_score < b_score: #what if I do this but factoring in mainstat into the scoring?
