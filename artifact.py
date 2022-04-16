@@ -20,6 +20,10 @@ class Artifact:
     def get_mainstat(self):
         return self.__mainstat
 
+    def get_hotstats(self):
+         #TODO do the weird list intersection here
+        return dict.fromkeys(stat_data.stat_name_map.keys())
+
     def generate_artifact(self, artifact_type=None, artifact_mainstat=None):
         #TODO: add substat declaration functionality
         artifact = self._assign_maintype(artifact_type)

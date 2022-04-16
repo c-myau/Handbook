@@ -3,21 +3,14 @@ import csv
 import artifact
 import datetime
 import stat_data
+import pathlib
 
 
 MAX_TESTS = 1000
-TOTAL_RUNS = 10000
+TOTAL_RUNS = 1000
 DEBUG = False
-ARTIFACT_TYPE = sys.argv[2]
 
 substat_names = ["HP_f","AK_f","DF_f","HP_p","AK_p","DF_p","ER_p","EM_f","CR_p","CD_p"]
-
-ELECTRO_CRIT_PROFILE = {
-    "EL_p":8,
-    "CR_p":4,
-    "CD_p":2,
-    "AK_p":1
-}
 
 def eval_artifact(input_artifact, eval_profile):
     #Apply profile scaling to substat artifact value
@@ -42,13 +35,13 @@ def artifact_to_csv(a):
 
     return [a.get_type(), a.get_mainstat()] + list(substat_dict.values())
 
-def generative_model():
-    a = artifact.Artifact(ARTIFACT_TYPE)
+def generative_model(artifact_type, stat_profile):
+    a = artifact.Artifact(artifact_type)
     for i in range(MAX_TESTS):
         b = artifact.Artifact()
         if a.get_type() == b.get_type():
-            a_score = eval_artifact(a, ELECTRO_CRIT_PROFILE)
-            b_score = eval_artifact(b, ELECTRO_CRIT_PROFILE)
+            a_score = eval_artifact(a, stat_profile)
+            b_score = eval_artifact(b, stat_profile)
             if a_score < b_score: #what if I do this but factoring in mainstat into the scoring?
                 break
     if i == MAX_TESTS - 1:
@@ -63,10 +56,10 @@ def generative_model():
             print("Artifact B\n---------\n{b} ".format(b=b))
     return (a, b, i, a_score, b_score)
 
-def main():
-    begin = datetime.datetime.now()
+def data_pipe(artifact_type, stat_profile, stat):
     j = 0
-    with open(ARTIFACT_TYPE + '_artifact_data.csv', 'w', newline='') as csvfile:
+
+    with open("./Data/" + artifact_type + "_" + stat + '.csv', 'w', newline='') as csvfile:
         artist = csv.writer(csvfile, delimiter=',', quotechar="'")
         artist.writerow([
             "NumRuns",
@@ -95,14 +88,6 @@ def main():
             "CR_p_B",
             "CD_p_B"])
         for i in range(TOTAL_RUNS):
-            (a, b, i, a_score, b_score) = generative_model()
+            (a, b, i, a_score, b_score) = generative_model(artifact_type, stat_profile)
             artist.writerow([i] + artifact_to_csv(a) + artifact_to_csv(b))
             j += i
-
-    print(datetime.datetime.now() - begin)
-    print("Number of total runs: {i}".format(i=j))
-
-
-
-if __name__ == "__main__":
-    sys.exit(main())

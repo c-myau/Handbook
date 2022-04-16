@@ -47,16 +47,16 @@ def rft_training(artifacts):
     # run this script.
     train_X, val_X, train_y, val_y = train_test_split(X, y, random_state = 0)
 
-    # # Define model
-    # max_leaf_nodes = 50
-    # artifact_model = DecisionTreeRegressor(max_leaf_nodes=max_leaf_nodes, random_state=0)
-    # # Fit model
-    # artifact_model.fit(train_X, train_y)
-    #
-    # # get predicted prices on validation data
-    # val_predictions = artifact_model.predict(val_X)
-    # print("Mean prediction: {avg}".format(avg=sum(val_predictions)/len(val_predictions)))
-    # print("MAE: {mae}".format(mae=mean_absolute_error(val_y, val_predictions)))
+    # Define model
+    max_leaf_nodes = 50
+    artifact_model = DecisionTreeRegressor(max_leaf_nodes=max_leaf_nodes, random_state=0)
+    # Fit model
+    artifact_model.fit(train_X, train_y)
+
+    # get predicted prices on validation data
+    val_predictions = artifact_model.predict(val_X)
+    print("Mean prediction: {avg}".format(avg=sum(val_predictions)/len(val_predictions)))
+    print("MAE: {mae}".format(mae=mean_absolute_error(val_y, val_predictions)))
 
     for max_leaf_nodes in [10, 30, 50, 70, 100]:
         my_mae = get_rft_mae(max_leaf_nodes, train_X, val_X, train_y, val_y)

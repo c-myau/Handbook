@@ -4,6 +4,7 @@ import pandas as pd
 import feature_engineering as fe
 import extract as ex
 import training as tr
+import artifact as ar
 
 training_file_path = "./Circlet_artifact_data.csv"
 export_file_path = "./Circlet_postprocessed_data.csv"
