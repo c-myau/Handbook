@@ -1,5 +1,0 @@
-Send all data gen to "data pool"
-
-From "data pool", train the data
-
-From training pipelines, get the model

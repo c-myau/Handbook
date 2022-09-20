@@ -1,4 +1,4 @@
-hp_circlet_sub = {
+hp_sub = {
     "HP_f":15.00,
     "AK_f":15.00,
     "DF_f":15.00,
@@ -11,7 +11,7 @@ hp_circlet_sub = {
     "CD_p":7.50
 }
 
-ak_circlet_sub = {
+ak_sub = {
     "HP_f":15.00,
     "AK_f":15.00,
     "DF_f":15.00,
@@ -24,7 +24,7 @@ ak_circlet_sub = {
     "CD_p":7.50
 }
 
-df_circlet_sub = {
+df_sub = {
     "HP_f":15.00,
     "AK_f":15.00,
     "DF_f":15.00,
@@ -37,7 +37,7 @@ df_circlet_sub = {
     "CD_p":7.50
 }
 
-em_circlet_sub = {
+em_sub = {
     "HP_f":15.00,
     "AK_f":15.00,
     "DF_f":15.00,
@@ -50,7 +50,7 @@ em_circlet_sub = {
     "CD_p":7.50
 }
 
-cr_circlet_sub = {
+cr_sub = {
     "HP_f":14.63,
     "AK_f":14.63,
     "DF_f":14.63,
@@ -63,7 +63,7 @@ cr_circlet_sub = {
     "CD_p":7.32
 }
 
-cd_circlet_sub = {
+cd_sub = {
     "HP_f":14.63,
     "AK_f":14.63,
     "DF_f":14.63,
@@ -76,7 +76,7 @@ cd_circlet_sub = {
     "CD_p":0
 }
 
-hb_circlet_sub = {
+hb_sub = {
     "HP_f":13.64,
     "AK_f":13.64,
     "DF_f":13.64,
@@ -90,7 +90,7 @@ hb_circlet_sub = {
 }
 
 
-hp_timepiece_sub = {
+hp_sub = {
     "HP_f":15.00,
     "AK_f":15.00,
     "DF_f":15.00,
@@ -103,33 +103,7 @@ hp_timepiece_sub = {
     "CD_p":7.50
 }
 
-ak_timepiece_sub = {
-    "HP_f":15.00,
-    "AK_f":15.00,
-    "DF_f":15.00,
-    "HP_p":10.00,
-    "AK_p":0,
-    "DF_p":10.00,
-    "ER_p":10.00,
-    "EM_f":10.00,
-    "CR_p":7.50,
-    "CD_p":7.50
-}
-
-df_timepiece_sub = {
-    "HP_f":15.00,
-    "AK_f":15.00,
-    "DF_f":15.00,
-    "HP_p":10.00,
-    "AK_p":10.00,
-    "DF_p":0,
-    "ER_p":10.00,
-    "EM_f":10.00,
-    "CR_p":7.50,
-    "CD_p":7.50
-}
-
-er_timepiece_sub = {
+er_sub = {
     "HP_f":15.00,
     "AK_f":15.00,
     "DF_f":15.00,
@@ -142,59 +116,7 @@ er_timepiece_sub = {
     "CD_p":7.50
 }
 
-em_timepiece_sub = {
-    "HP_f":15.00,
-    "AK_f":15.00,
-    "DF_f":15.00,
-    "HP_p":10.00,
-    "AK_p":10.00,
-    "DF_p":10.00,
-    "ER_p":10.00,
-    "EM_f":0,
-    "CR_p":7.50,
-    "CD_p":7.50
-}
-
-hp_goblet_sub = {
-    "HP_f":15.00,
-    "AK_f":15.00,
-    "DF_f":15.00,
-    "HP_p":0,
-    "AK_p":10.00,
-    "DF_p":10.00,
-    "ER_p":10.00,
-    "EM_f":10.00,
-    "CR_p":7.50,
-    "CD_p":7.50
-}
-
-ak_goblet_sub = {
-    "HP_f":15.00,
-    "AK_f":15.00,
-    "DF_f":15.00,
-    "HP_p":10.00,
-    "AK_p":0,
-    "DF_p":10.00,
-    "ER_p":10.00,
-    "EM_f":10.00,
-    "CR_p":7.50,
-    "CD_p":7.50
-}
-
-df_goblet_sub = {
-    "HP_f":15.00,
-    "AK_f":15.00,
-    "DF_f":15.00,
-    "HP_p":10.00,
-    "AK_p":10.00,
-    "DF_p":0,
-    "ER_p":10.00,
-    "EM_f":10.00,
-    "CR_p":7.50,
-    "CD_p":7.50
-}
-
-elemental_goblet_sub = {
+elemental_sub = {
     "HP_f":13.64,
     "AK_f":13.64,
     "DF_f":13.64,
@@ -207,20 +129,7 @@ elemental_goblet_sub = {
     "CD_p":6.82
 }
 
-em_goblet_sub = {
-    "HP_f":15.00,
-    "AK_f":15.00,
-    "DF_f":15.00,
-    "HP_p":10.00,
-    "AK_p":10.00,
-    "DF_p":10.00,
-    "ER_p":10.00,
-    "EM_f":0,
-    "CR_p":7.50,
-    "CD_p":7.50
-}
-
-flower_sub = {
+hp_f_sub = {
     "HP_f":0,
     "AK_f":15.79,
     "DF_f":15.79,
@@ -234,7 +143,7 @@ flower_sub = {
 }
 
 
-feather_sub = {
+atk_f_sub = {
     "HP_f":15.79,
     "AK_f":0,
     "DF_f":15.79,
@@ -275,6 +184,7 @@ stat_name_map = {
     "EL_p":"Percentage Electro Damage",
     "CY_p":"Percentage Cyro Damage",
     "HY_p":"Percentage Hydro Damage",
+    "DN_p":"Percentage Dendro Damage",
     "AN_p":"Percentage Anemo Damage",
     "GE_p":"Percentage Geo Damage",
     "PH_p":"Percentage Physical Damage",
@@ -298,13 +208,14 @@ main_timepiece = {
     "EM_f":10.00
 }
 main_goblet = {
-    "HP_p":21.25,
-    "AK_p":21.25,
-    "DF_p":20.00,
+    "HP_p":19.175,
+    "AK_p":19.175,
+    "DF_p":19.15,
     "PY_p":5.00,
     "EL_p":5.00,
     "CY_p":5.00,
     "HY_p":5.00,
+    "DN_p":5.00,
     "AN_p":5.00,
     "GE_p":5.00,
     "PH_p":5.00,
@@ -325,15 +236,19 @@ mainstat_value = {
     "EL_p":46.6,
     "CY_p":46.6,
     "HY_p":46.6,
+    "DN_p":46.6,
     "AN_p":46.6,
     "GE_p":46.6,
     "PH_p":58.3,
     "HB_p":35.9
-
 }
 
-main_flower = {"HP_f":100.00}
-main_feather = {"AK_f":100.0}
+main_flower = {
+    "HP_f":100.00
+}
+main_feather = {
+    "AK_f":100.0
+}
 
 artifact_type = {
     "Circlet" : main_circlet,
@@ -341,38 +256,4 @@ artifact_type = {
     "Goblet" : main_goblet,
     "Flower" : main_flower,
     "Feather" : main_feather
-}
-
-artifact_to_substat_map = {
-    "Circlet" : {
-        "HP_p":hp_circlet_sub,
-        "AK_p":ak_circlet_sub,
-        "DF_p":df_circlet_sub,
-        "CR_p":cr_circlet_sub,
-        "CD_p":cd_circlet_sub,
-        "HB_p":hb_circlet_sub,
-        "EM_f":em_circlet_sub
-    },
-    "Timepiece" : {
-        "HP_p":hp_timepiece_sub,
-        "AK_p":ak_timepiece_sub,
-        "DF_p":df_timepiece_sub,
-        "ER_p":er_timepiece_sub,
-        "EM_f":em_timepiece_sub
-    },
-    "Goblet" : {
-        "HP_p":hp_goblet_sub,
-        "AK_p":ak_goblet_sub,
-        "DF_p":df_goblet_sub,
-        "PY_p":elemental_goblet_sub,
-        "EL_p":elemental_goblet_sub,
-        "CY_p":elemental_goblet_sub,
-        "HY_p":elemental_goblet_sub,
-        "AN_p":elemental_goblet_sub,
-        "GE_p":elemental_goblet_sub,
-        "PH_p":elemental_goblet_sub,
-        "EM_f":em_goblet_sub
-    },
-    "Flower" : {"HP_f":flower_sub},
-    "Feather" : {"AK_f":feather_sub}
 }
